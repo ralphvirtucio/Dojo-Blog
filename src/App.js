@@ -3,13 +3,18 @@ import styled from 'styled-components';
 import Home from './components/Home';
 import NavBar from './components/NavBar';
 
+const Container = styled.div`
+  text-align: center;
+`;
+
+const Content = styled.div`
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: left;
+`;
+
 const App = () => {
-  const Container = styled.div`
-    text-align: center;
-  `;
-
-  const Content = styled.div``;
-
   return (
     <Container>
       <NavBar />
