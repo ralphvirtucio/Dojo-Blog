@@ -1,20 +1,5 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-
-const BlogPreview = styled.div`
-  padding: 10px 16px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-  :hover {
-    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-  }
-`;
-
-const BlogHeader = styled.h2`
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 8px;
-`;
+import BlogList from './BlogList';
 
 const Home = () => {
   const [blogs, setBlogs] = useState([
@@ -30,12 +15,11 @@ const Home = () => {
 
   return (
     <div className="home">
-      {blogs.map(blog => (
-        <BlogPreview key={blog.id}>
-          <BlogHeader>{blog.title}</BlogHeader>
-          <p>Written by {blog.author}</p>
-        </BlogPreview>
-      ))}
+      <BlogList blogs={blogs} title="All Blogs!" />
+      <BlogList
+        blogs={blogs.filter(blog => blog.author === 'mario')}
+        title="Mario Blogs!"
+      />
     </div>
   );
 };
