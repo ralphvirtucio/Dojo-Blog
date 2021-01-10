@@ -21,7 +21,7 @@ const DeleteButton = styled.button`
   border-radius: 8px;
 `;
 
-const BlogList = ({ blogs, title, handleDelete }) => {
+const BlogList = ({ blogs, title }) => {
   return (
     <div className="blog-list">
       <h2>{title}</h2>
@@ -29,9 +29,6 @@ const BlogList = ({ blogs, title, handleDelete }) => {
         <BlogPreview key={blog.id}>
           <BlogHeader>{blog.title}</BlogHeader>
           <p>Written by {blog.author}</p>
-          <DeleteButton onClick={() => handleDelete(blog.id)}>
-            Delete Blog
-          </DeleteButton>
         </BlogPreview>
       ))}
     </div>
