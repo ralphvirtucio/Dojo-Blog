@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
@@ -18,7 +19,16 @@ const NavLink = styled.div`
   margin-left: auto;
 `;
 
-const Link = styled.a`
+const HomeLink = styled.span`
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+  :hover {
+    color: #f1356d;
+  }
+`;
+
+const CreateLink = styled.span`
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
@@ -32,17 +42,12 @@ const NavBar = () => {
     <Nav>
       <NavHeader>The Dojo Blog</NavHeader>
       <NavLink>
-        <Link href="/">Home</Link>
-        <Link
-          href="/create"
-          style={{
-            color: 'white',
-            backgroundColor: '#f1356d',
-            borderRadius: '8px',
-          }}
-        >
-          New Blog
-        </Link>
+        <HomeLink>
+          <Link to="/">Home</Link>
+        </HomeLink>
+        <CreateLink>
+          <Link to="/create">New Blog</Link>
+        </CreateLink>
       </NavLink>
     </Nav>
   );
