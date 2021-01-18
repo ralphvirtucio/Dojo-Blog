@@ -17,37 +17,30 @@ const NavHeader = styled.h1`
 
 const NavLink = styled.div`
   margin-left: auto;
-`;
-
-const HomeLink = styled.span`
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
   :hover {
     color: #f1356d;
   }
 `;
 
-const CreateLink = styled.span`
-  margin-left: 16px;
-  text-decoration: none;
-  padding: 6px;
-  :hover {
-    color: #f1356d;
-  }
-`;
+const styles = {
+  marginLeft: '16px',
+  textDecoration: 'none',
+  padding: '6px',
+  fontSize: '24px',
+  color: 'black',
+};
 
 const NavBar = () => {
   return (
     <Nav>
       <NavHeader>The Dojo Blog</NavHeader>
       <NavLink>
-        <HomeLink>
-          <Link to="/">Home</Link>
-        </HomeLink>
-        <CreateLink>
-          <Link to="/create">New Blog</Link>
-        </CreateLink>
+        <Link to="/" style={styles}>
+          Home
+        </Link>
+        <Link style={styles} to="/create">
+          New Blog
+        </Link>
       </NavLink>
     </Nav>
   );

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const BlogPreview = styled.div`
@@ -15,23 +16,20 @@ const BlogHeader = styled.h2`
   margin-bottom: 8px;
 `;
 
-const DeleteButton = styled.button`
-  border: none;
-  background: #e7e7e7;
-  border-radius: 8px;
+const BlogAuthor = styled.p`
+  color: black;
 `;
 
-const BlogList = ({ blogs, title, handleDelete }) => {
+const BlogList = ({ blogs, title }) => {
   return (
     <div className="blog-list">
       <h2>{title}</h2>
       {blogs.map(blog => (
         <BlogPreview key={blog.id}>
-          <BlogHeader>{blog.title}</BlogHeader>
-          <p>Written by {blog.author}</p>
-          {/* <DeleteButton onClick={() => handleDelete(blog.id)}>
-            Delete Blog
-          </DeleteButton> */}
+          <Link to={`/blogs/${blog.id}`} style={{ textDecoration: 'none' }}>
+            <BlogHeader>{blog.title}</BlogHeader>
+            <BlogAuthor>Written by {blog.author}</BlogAuthor>
+          </Link>
         </BlogPreview>
       ))}
     </div>
