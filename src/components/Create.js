@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -55,20 +55,37 @@ const CreateButton = styled.button`
 `;
 
 const Create = () => {
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [author, setAuthor] = useState('Mario');
+
   return (
     <Container>
       <CreateHeader>Add a New Blog</CreateHeader>
       <form>
         <CreateLabel>Blog Title</CreateLabel>
-        <CreateInput type="text" required />
+        <CreateInput
+          type="text"
+          value={title}
+          required
+          onChange={e => setTitle(e.target.value)}
+        />
         <CreateLabel>Blog Body</CreateLabel>
-        <CreateTextArea required></CreateTextArea>
+        <CreateTextArea
+          required
+          value={body}
+          onChange={e => setBody(e.target.value)}
+        ></CreateTextArea>
         <CreateLabel>Blog Author</CreateLabel>
-        <CreateSelect>
-          <option value="mario">Mario</option>
-          <option value="yoshi">Yoshi</option>
+        <CreateSelect value={author} onChange={e => setAuthor(e.target.value)}>
+          <option value="Mario">Mario</option>
+          <option value="Yoshi">Yoshi</option>
+          <option value="Chris">Chris</option>
         </CreateSelect>
         <CreateButton>Add Blog</CreateButton>
+        <p>{title}</p>
+        <p>{body}</p>
+        <p>{author}</p>
       </form>
     </Container>
   );
