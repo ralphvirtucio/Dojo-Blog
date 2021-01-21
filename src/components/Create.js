@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -59,6 +60,7 @@ const Create = () => {
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('Mario');
   const [pending, setPending] = useState(false);
+  const history = useHistory();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -74,6 +76,7 @@ const Create = () => {
     }).then(() => {
       console.log('new blog added');
       setPending(false);
+      history.push('/');
     });
   };
 

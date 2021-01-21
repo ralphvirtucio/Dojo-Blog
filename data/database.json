@@ -29,6 +29,18 @@
       "body": "New BLog",
       "author": "Chris",
       "id": 5
+    },
+    {
+      "title": "New",
+      "body": "Task ",
+      "author": "Mario",
+      "id": 6
+    },
+    {
+      "title": "Computing",
+      "body": "Computer Science",
+      "author": "Chris",
+      "id": 7
     }
   ]
 }
